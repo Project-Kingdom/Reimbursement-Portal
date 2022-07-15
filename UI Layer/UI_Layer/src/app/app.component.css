@@ -1,0 +1,22 @@
+.header {
+    height: 80px;
+    color: whitesmoke;
+    font-weight: 600;
+    background-color: rgb(19,41,75);
+    border-bottom: rgb(73,209,170) solid;
+    border-top:rgb(73,209,170) solid;
+    border-width: 5px;
+  }
+  
+/* .logout{
+    width:80px;
+    height:30px;
+    position: absolute;
+    right: 4%;
+    rgb(19, 56, 206)
+    border-radius: 10px;
+    background-color:khaki;
+    padding: 0px 10px;
+    border: 2px solid #a2a360;
+    display: none;
+}   */

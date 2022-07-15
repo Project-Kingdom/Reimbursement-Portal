@@ -1,0 +1,101 @@
+`<div style="position: relative;top: 1%;"></div>
+
+<div class="row m-2">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="p-3 shadow-lg" style="background-color: rgb(19,41,75);border-radius: 10px;">
+            <div class="pt-3">
+                <h2 class="text-white text-center ">Sign Up</h2>
+            </div>
+            <form class="form-body mt-5" autocomplete="off" #signupform="ngForm" (ngSubmit)="signupform.form.valid&&onSubmit(signupform)">
+                <div class="row">
+                    <!-- <input type="hidden" name="id" [value]="User.UserId"> -->
+                    <div class="col-sm form-group">
+                        <label for="UserName" style="color: white;">Full Name</label>
+                        <input type="text" class="borderColor form-control form-control-sm bg-light" id="UserName"
+                         placeholder="Enter User Name" name="UserName" required pattern="^[A-Za-z ]*" maxlength="255"
+                         [(ngModel)]='service.userData.UserName' #UserName="ngModel">
+                        <div style="color: red;" *ngIf="UserName.invalid && (UserName.dirty || UserName.touched)">
+                            *Required
+                        </div>
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="UserEmail" style="color: white;">Email</label>
+                        <input type="text" class="borderColor form-control form-control-sm bg-light" required pattern="\S+@\S+\.\S+"
+                         placeholder="Enter Email Id" id="UserEmail" name="UserEmail" [(ngModel)]='service.userData.UserEmail' #email="ngModel">
+                         <div style="color: red;" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            *Required and format :"hello@gmail.com"
+                        </div>
+                        <div style="color: red;" *ngIf="!EmailAvailable">
+                            Email already taken
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-sm form-group">
+                        <label for="UserPassword" style="color: white;">Password</label>
+                        <input type="password" class="borderColor form-control form-control-sm bg-light"
+                        required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" id="UserPassword"
+                         name="UserPassword" [(ngModel)]='service.userData.UserPassword' #password="ngModel">
+                         <div style="color: red;" *ngIf="password.invalid && (password.dirty || password.touched)">
+                            *Min length is 8 and it must have at-least 1 special character, 1 number and 1 alphabet
+                        </div>
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="ConfirmPassword" style="color: white;">Confirm Password </label>
+                        <input type="password" class="borderColor form-control form-control-sm bg-light"
+                         placeholder="Confirm Password" validateEqual="UserPassword" id="ConfirmPassword" 
+                         minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                         name="ConfirmPassword" required ngModel #Confirmpassword="ngModel">
+                         <div style="color: red;" *ngIf="Confirmpassword.invalid && (Confirmpassword.dirty || Confirmpassword.touched)">
+                            *Password MisMatch 
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row mt-5">
+                    <div class="col-sm form-group">
+                        <label for="UserPanNumber" style="color: white;">Enter PAN Number</label>
+                        <input type="text" class="borderColor form-control form-control-sm bg-light"
+                         placeholder="PAN Number" name="UserPanNumber" pattern="[a-zA-Z0-9]*"
+                         required maxlength="10" minlength="10"  id="UserPanNumber" name="UserPanNumber" [(ngModel)]='service.userData.UserPanNumber' #pannum="ngModel">
+                        <div style="color: red;" *ngIf="pannum.invalid && (pannum.dirty || pannum.touched)">
+                            *Required and should be of 10-digit alphanumeric only
+                        </div>
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="UserBank" style="color: white;">Bank</label>
+                        <select class="borderColor form-control bg-light" required
+                         placeholder="Choose Bank" name="UserBank" id="UserBank" [(ngModel)]='service.userData.UserBank'>
+                         <option value="SBI">SBI</option>
+                         <option value="ICICI">ICICI</option>
+                         <option value="HDFC">HDFC</option>
+                        </select>
+                        <!-- <div style="color: red;" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            *Required 
+                        </div> -->
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="UserBAN" style="color: white;">Enter Bank Account Number</label>
+                        <input type="text" class="borderColor form-control form-control-sm bg-light"
+                         placeholder="Bank Account Number" required pattern="^[0-9]*$" minlength="12" maxlength="12"
+                          id="UserBAN" name="UserBAN" [(ngModel)]='service.userData.UserBAN' #ban="ngModel">
+                        <div style="color: red;" *ngIf="ban.invalid && (ban.dirty || ban.touched)">
+                            *Required and should be 12 digit numeric only
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5" style="text-align: center;">
+                    <button type="submit" class="btn btn1 col" style="background-color: rgb(73,209,170);color: rgb(19,41,75);">
+                        Register
+                    </button>
+                </div>
+                <div class="mt-3" style="text-align: center;">
+                    <button class="btn btn1 col" style="background-color: rgb(73,209,170);color: rgb(19,41,75);" routerLink="/">
+                       Back To Log-In
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

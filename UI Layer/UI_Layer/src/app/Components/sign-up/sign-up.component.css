@@ -1,0 +1,15 @@
+.borderColor {
+    border-color:  rgb(73,209,170);
+    border-width: 3px;
+    border-radius: 10px;
+}
+input{
+    height: 38px;
+}
+.btn1:hover{
+    transform: scale(1.1);
+}
+.btn1:focus{
+    outline: none;
+    box-shadow: none;
+}

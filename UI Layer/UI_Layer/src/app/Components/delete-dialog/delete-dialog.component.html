@@ -1,0 +1,10 @@
+<div>
+    <div class="content-container">
+        <button class="btn btn1" (click)="closeDialog()"><i class="fa fa-times icon" aria-hidden="true"></i></button>
+    </div>
+    <p class="content-span full-width">Are you sure to delete this claim?</p>
+    <span style="margin-left: 5px;"></span>
+    <button class="btn btn-danger btn2" id="yes-button" (click)="delete(true,service.reimbursementData.ReimbursementId)">YES</button>
+    <span style="margin-left: 20px;"></span>
+    <button class="btn btn-primary btn3" id="no-button" (click)="delete(false,service.reimbursementData.ReimbursementId)">NO</button>
+</div>

@@ -1,0 +1,73 @@
+.header {
+    height: 40px;
+    color: rgb(19,41,75);
+    font-weight: 600;
+    /* background-color: lightblue; */
+    border-bottom:  rgb(73,209,170) solid;
+    border-top: rgb(73,209,170) solid;
+    border-width: 5px;
+}
+
+.space {
+    padding: 10px 1px;
+}
+
+.color {
+    color:rgb(19,41,75) ;
+    font-weight: 700;
+}
+
+.borderColor {
+    border-color:  rgb(73,209,170);
+    border-width: 3px;
+    border-radius: 20px;
+}
+.btn{
+    width: 10px;
+    font-size: 16px;
+    float: right;
+}
+.btn:hover{
+    transform: scale(1.2);
+}
+.btn:focus{
+    outline: 0;
+    box-shadow: none;
+}
+
+.icon{
+    height: 16px;
+    /* position: absolute;
+    top: 15%; */
+    float: right;
+    margin-right: 40%;
+    padding-right: 36%;
+}
+
+.bug1{
+    border-radius: 20px;
+    width: 120px;
+    background-color: rgb(19,41,75);
+    color:  whitesmoke;
+    font-weight: 500;
+    border:3px rgb(73,209,170) solid;
+    border-width: 2px;
+}
+.bug2{
+    background-color:  rgb(19,41,75) ;
+    border:3px rgb(73,209,170) solid;
+    border-radius: 20px;
+    width: 120px;
+    color: whitesmoke;
+    font-weight: 500;
+    margin-left: 30px;
+}
+/* input[type="file"]::-webkit-file-upload-button {
+    float: right;
+    margin-left: 20%;
+    margin-right:0px;
+  } */
+  input:focus{
+    outline: 0;
+    box-shadow: none;
+}  

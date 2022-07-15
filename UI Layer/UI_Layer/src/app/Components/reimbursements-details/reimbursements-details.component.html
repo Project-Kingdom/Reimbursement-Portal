@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div style="margin-top:20px;">
+        <h3 style="margin-left: 40px;margin-right: 75%;color: rgb(19,41,75);float: left;">My Claims</h3>
+        <button (click)="logout()" class="btn bg" style="width: 100px;">
+            LogOut
+        </button>
+    </div>
+</div>
+<div class="container-fluid main-body" style="margin-top: 40px;">
+    <div class="row mt-4 mb-2">
+        <div>
+            <input type="button" class="btn border-class mr-10" value=" Add new reimbursement" (click)="onCreate()">
+        </div>
+    </div>
+    <div class="row table-container mb-3 mt-4">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Reimbursement Type</th>
+                <th>Requested Value</th>
+                <th>Approved Value</th>
+                <th>Currency</th>
+                <th>Request Phase</th>
+                <th>Receipt</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngIf="service.reimbursementList.length==0; else elseBlock">
+                <td colspan="8">No Record Exists...</td>
+            </tr>
+            <ng-template #elseBlock>
+                <tr *ngFor="let reim of service.reimbursementList">
+                    <td>{{reim.Date | date:'dd-MM-yyyy'}}</td>
+                    <td>{{reim.ReimbursementType}}</td>
+                    <td>{{reim.RequestedValue}}</td>
+                    <td>{{reim.ApprovedValue== 0 ? null : reim.ApprovedValue}}</td>
+                    <td>{{reim.Currency}}</td>
+                    <td>{{reim.RequestPhase}}</td>
+                    <!-- <td>{{reim.Receipt}}</td> -->
+                    <td *ngIf="reim.Receipt=='No';">No</td>
+                    <td *ngIf="reim.Receipt!='No';">Yes</td>
+                    
+                    <!-- <td><img [src]="createImgPath(reim.Receipt)" #Image accept="image/*" style="width:50px;height:50px"></td> -->
+                    <td>
+                        <button class="btn btn1" style="background-color: lightgreen;" value="Edit"
+                            (click)="update(reim)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn1" style="margin-left: 15px;background-color: lightsalmon;" value="Delete"
+                            (click)="delete(reim.ReimbursementId)"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </table>
+    </div>
+</div>  

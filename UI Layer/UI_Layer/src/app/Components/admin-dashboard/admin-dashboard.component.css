@@ -1,0 +1,60 @@
+.bg{
+    background-color:rgb(73,209,170);
+}
+.navbar {
+    /*Remove Height from here*/
+    border-bottom-right-radius: 200px;
+    border-top-right-radius: 200px;
+    display: inline-flex;
+    flex-flow: row nowrap;
+  }
+  /*navbar items settings*/
+
+  .navbar-nav {
+    flex-flow: row wrap;/*Change nowrap to wrap*/
+  }
+  /*giving gaps between each nav items*/
+
+  .navbar-nav .nav-link {/*change the class nav-item to nav-link*/
+    padding: 0.5em .5em;
+  }
+  .main-body{
+    margin-top: 10px;
+  }
+  .table-container{      
+      max-height: 320px;
+      overflow-y: auto;
+      width: 93%;
+      margin: auto;
+    }
+    table, th, td{
+          border: 2px solid rgb(73,209,170);
+          border-collapse: collapse;
+          /* lightskyblue */
+      }
+    th,td{
+      text-align: center;
+      height: 60px;
+      padding: 5px;
+      width: 10%;  
+    }
+    th{
+      color: rgb(19,41,75);
+      /* background-color: lightgreen; */
+    }
+    td{
+      color: rgb(19,41,75) ;
+      font-weight: 500;
+    }
+    .btn1:hover{
+      transform: scale(1.1);
+    }
+    .btn1:focus{
+      outline: none;
+      box-shadow: none;
+    }  
+
+    .email-filter:focus{
+      outline: none;
+      box-shadow: none;
+    }

@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div style="margin-top:20px;">
+        <button style="margin-left: 40px;float: left;" (click)="pendingTable()" class="btn bg btn1">
+            Pending Requests
+        </button>
+        <button style="float: left;margin-left: 40px;" (click)="declineTable()" class="btn bg btn1">
+            Decline Requests
+        </button>
+        <button style="float: left;margin-left: 40px;margin-right: 41%;" (click)="approvedTable()" class="btn bg btn1">
+            Approved Requests
+        </button>
+        <!-- <h3 style="margin-left: 40px;margin-right: 75%;color: rgb(19,41,75);float: left;">My Claims</h3> -->
+        <button  (click)="logout()" class="btn bg btn1" style="width: 100px;">
+            LogOut
+        </button>
+    </div>
+</div>
+<div class="searchfilter mt-1"
+    style="padding-top: 20px;margin-left: 50px;color: rgb(19,41,75);font-weight: 500;">
+    <div class="col-sm-4 d-inline-block">Email
+        <input style="border: 2px rgb(73,209,170) solid;" type="text" class="form-control email-filter" placeholder="abc@xyz.com" name="EmailFilter"
+            id="EmailFilter" #EmailFilter>
+    </div>
+    <div class="col-sm-4 d-inline-block  mt-1" style="padding-left: 20px;color: rgb(19,41,75);font-weight: 500;">
+        <div class="type-filter">
+            Reimbursement Type
+            <select style="border: 2px rgb(73,209,170) solid;" required class="form-control email-filter" name="ReimbursementTypeFilter"
+                id="ReimbursementTypeFilter" [(ngModel)]="reimbursementType">
+                <option value="">All Types</option>
+                <option value="Medical">Medical</option>
+                <option value="Travel">Travel</option>
+                <option value="Food">Food</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Misc">Misc</option>
+            </select>
+        </div>
+    </div>
+    <button class="btn" (click)="SearchRequestedBy(EmailFilter.value)" style="margin-left: 20px;background-color:rgb(19,41,75);color: white;height: 40px;">search</button>
+</div>
+<div class="container-fluid main-body" style="padding-top: 20px;">
+    <div class="row table-container mb-3 mt-4">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Requested By</th>
+                <th>Reimbursement Type</th>
+                <th>Requested Value</th>
+                <th>Currency</th>
+                <th>Receipt</th>
+                <th *ngIf="this.pageNo!=1">Actions</th>
+            </tr>
+            <tr *ngIf="service.adminReimbursementList.length==0; else elseBlock">
+                <td colspan="8">No Record Exists...</td>
+            </tr>
+            <ng-template #elseBlock>
+                <tr *ngFor="let reim of service.adminReimbursementList">
+                    <td *ngIf="(requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)">
+                        {{reim.Date | date:'dd-MM-yyyy'}}
+                    </td>
+                    <td *ngIf="(requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)">
+                        {{reim.RequestedBy}}
+                    </td>
+                    <td *ngIf="(requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)">
+                        {{reim.ReimbursementType}}
+                    </td>
+                    <td *ngIf="(requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)">
+                        {{reim.RequestedValue}}
+                    </td>
+                    <td *ngIf="(requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)">
+                        {{reim.Currency}}
+                    </td>
+                    <td *ngIf="(requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)">
+                        <a *ngIf="reim.Receipt!='No'" href="https://localhost:44371/{{reim.Receipt}}" target="_blank">Yes</a> 
+                        <!-- <p (click)="image(reim.Receipt)" style="color: #0000FF;text-decoration: underline;" *ngIf="reim.Receipt!='No'"> Yes</p> -->
+                       <p *ngIf="reim.Receipt=='No'">No</p>
+                       <!-- href="https://localhost:44371/{{reim.Receipt}}" -->
+                    </td>
+                    <td *ngIf="((requestedBy == '' || requestedBy == reim.RequestedBy) && (reimbursementType == '' || reim.ReimbursementType == reimbursementType)) && this.pageNo!=1" >
+                        <button class="btn btn1" style="background-color: lightgreen;" value="Approve"
+                            (click)="onCreate(reim.ReimbursementId)">Approve</button>
+                        <button class="btn btn1" style="margin-top: 5px;background-color: lightcoral;" value="Decline"
+                            (click)="decline(reim.ReimbursementId)">Decline</button>
+                    </td>
+                </tr>
+            </ng-template>
+        </table>
+    </div>
+</div>

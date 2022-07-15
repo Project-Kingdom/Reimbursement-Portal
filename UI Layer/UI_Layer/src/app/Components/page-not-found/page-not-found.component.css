@@ -1,0 +1,23 @@
+.center-text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+    font-size: 50px;
+}
+.link{
+    padding-top:10px;
+    position: absolute;
+    left: 29%;
+    color:rgb(19, 206, 150);
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.link:hover{
+    transform: scale(1.1);
+    /* color: khaki; */
+}

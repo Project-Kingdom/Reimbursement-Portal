@@ -1,0 +1,36 @@
+<div class="header">
+    <button class="btn" (click)="onClose()"><i class="fa fa-times icon" aria-hidden="true"></i></button>
+    <h6 style="text-align: center;margin-top: 5px;">Approve Reimbursement</h6>
+
+</div>
+<div class="container-fluid" style="margin: 20px;">
+    <form class="form-body" autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && onSubmit(myForm)"
+        ngNativeValidate>
+        <input type="hidden" name="reimbursementId" [value]="service.approveReimbursementData.ReimbursementId">
+        <div class="form-group row space">
+            <label for="approvedBy" class="col-sm-4 control-label color">Approved By</label>
+            <div class="col-sm-5">
+                <input type="email" class="form-control borderColor" name="approvedBy" #reqValue="ngModel" id="approvedBy"
+                    required [(ngModel)]="service.approveReimbursementData.ApprovedBy">
+            </div>
+        </div>
+        <div class="form-group row space">
+            <label for="approvedValue" class="col-sm-4 control-label color">Approved Value</label>
+            <div class="col-sm-5">
+                <input type="number" class="form-control borderColor" name="approvedValue" #reqValue="ngModel" id="approvedValue"
+                    required [(ngModel)]="service.approveReimbursementData.ApprovedValue">
+            </div>
+        </div>
+        <div class="form-group row space">
+            <label for="desc" class="col-sm-4 control-label color">Internal Notes</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control borderColor" autocomplete="off" #currency="ngModel"
+                 name="desc" list="currency" required [(ngModel)]="service.approveReimbursementData.Description">
+            </div>
+        </div>
+        <div class="row" style="padding-top: 40px;float: right;padding-right: 20px;">
+            <input type="submit" class="btn bug1" value="Done">
+            <input type="reset" class="btn bug2" value="Clear" name="clear">
+        </div>
+    </form>
+</div> 

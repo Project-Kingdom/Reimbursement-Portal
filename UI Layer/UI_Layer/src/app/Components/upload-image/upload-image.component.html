@@ -1,0 +1,12 @@
+<div class="form-group row space">
+    <label for="receipt" class="col-sm-4 control-label color"></label>
+    <div class="row col-sm-3">
+        <input type="file" #file (change)="uploadFile(file.files)" class="form-control" style="display: none;" name="receipt" id="receipt">
+        <button type="button" class="btn btn1 row" (click)="file.click()">Upload Image</button>
+        <span class="upload" *ngIf="message">
+            {{message}}
+          </span>
+    </div>
+    
+    <!-- <img [src]="imageUrl" style="margin-bottom: 80px; width:80px;height:60px"> -->
+</div>

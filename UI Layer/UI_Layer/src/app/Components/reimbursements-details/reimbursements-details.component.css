@@ -1,0 +1,83 @@
+.main-body{
+  margin-top: 10px;
+}
+.table-container{      
+    max-height: 320px;
+    overflow-y: auto;
+    width: 80%;
+    margin: auto;
+  }
+  table, th, td{
+        border: 2px solid rgb(73,209,170);
+        border-collapse: collapse;
+        /* lightskyblue */
+    }
+  th,td{
+    text-align: center;
+    height: 60px;
+    padding: 5px;
+    width: 10%;  
+  }
+  th{
+    color: rgb(19,41,75);
+    /* background-color: lightgreen; */
+  }
+  td{
+    color: rgb(19,41,75) ;
+    font-weight: 500;
+  }
+  .back{
+    padding-left: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    color: lightskyblue;
+}
+.border-class{
+  float: right;
+  margin-right: 10%;
+  border-radius: 8px;
+  /* background-color: rgb(2, 179, 255); */
+  border: rgb(73,209,170) solid;
+  color:rgb(19,41,75) ;
+  border-width: 3px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.border-class:hover{
+  transform: scale(1.1);
+  /* border: red solid; */
+}  
+.border-class:focus{
+  outline: none;
+  box-shadow: none;
+}
+.btn1:hover{
+  transform: scale(1.1);
+}
+.btn1:focus{
+  outline: none;
+  box-shadow: none;
+}
+/* .main-body{
+  background-color: rgb(7, 161, 226);;
+}   */
+.bg{
+  background-color:rgb(73,209,170);
+}
+.navbar {
+  /*Remove Height from here*/
+  border-bottom-right-radius: 200px;
+  border-top-right-radius: 200px;
+  display: inline-flex;
+  flex-flow: row nowrap;
+}
+/*navbar items settings*/
+
+.navbar-nav {
+  flex-flow: row wrap;/*Change nowrap to wrap*/
+}
+/*giving gaps between each nav items*/
+
+.navbar-nav .nav-link {/*change the class nav-item to nav-link*/
+  padding: 0.5em .5em;
+}
